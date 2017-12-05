@@ -35,3 +35,8 @@ plotter use <name> makes that specific file the active plotter file. This also v
 plotter
 ```
 plotter gives you the name of the active plotter file.
+
+```
+plotter init <name>
+```
+plotter init is how you get started. This command checks if a plotter directory exists and if not creates the directory and The name takes your current `.kube/config` file and moves it to `.kube/plotter/<name>` along with creating `.kube/plotter/backup` for the backup function.
