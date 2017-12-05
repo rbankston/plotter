@@ -14,8 +14,6 @@
 
 package main
 
-import "github.com/rbankston/plotter/cmd"
-
 func main() {
-	cmd.Execute()
+
 }
