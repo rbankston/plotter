@@ -32,6 +32,6 @@ plotter use <name>
 plotter use <name> makes that specific file the active plotter file. This also verifies if any changes were made to your previous plotter config and which one to save or to create a new plotter file out the back up leaving the previous file the same without modifications.
 
 ```
-plotter active
+plotter
 ```
-plotter active gives you the name of the active plotter file.
+plotter gives you the name of the active plotter file.
