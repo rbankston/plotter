@@ -40,3 +40,15 @@ plotter gives you the name of the active plotter file.
 plotter init <name>
 ```
 plotter init is how you get started. This command checks if a plotter directory exists and if not creates the directory and The name takes your current `.kube/config` file and moves it to `.kube/plotter/<name>` along with creating `.kube/plotter/backup` for the backup function.
+
+## Future items
+
+```
+plotter new <name>
+```
+Command line questions to create a new kube config file
+
+```
+plotter namespace <name>
+```
+updates the current namespace of the current plotter config. Leaving blank removes the namespace.
