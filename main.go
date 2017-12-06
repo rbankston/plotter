@@ -1,4 +1,4 @@
-// Copyright © 2017 Ralph Bankston <ralph.l.bankston@gmail.com>
+// Copyright © 2017 NAME HERE <EMAIL ADDRESS>
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@
 
 package main
 
-func main() {
+import "github.com/rbankston/plotter/cmd"
 
+func main() {
+	cmd.Execute()
 }
