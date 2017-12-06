@@ -23,13 +23,9 @@ import (
 // useCmd represents the use command
 var useCmd = &cobra.Command{
 	Use:   "use",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "plotter use makes that specific file the active plotter file",
+	Long: `plotter use makes that specific file the active plotter file. 
+	This also verifies if any changes were made to your previous plotter config and which one to save or to create a new plotter file out the back up leaving the previous file the same without modifications.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("use called")
 	},
