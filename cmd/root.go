@@ -32,7 +32,10 @@ var RootCmd = &cobra.Command{
 	Long:  `plotter keeps your kubeconfigs in a sane fashion for handling multiple clusters without contexts `,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-	Run: func(cmd *cobra.Command, args []string) {},
+	// TODO: Alias the list command for the RootCmd
+	// Run: func(cmd *cobra.Command, args []string) {
+	// 	ListCmd()
+	// },
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
