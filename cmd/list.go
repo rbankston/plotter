@@ -15,48 +15,19 @@
 package cmd
 
 import (
-	"fmt"
-	"io/ioutil"
-	"log"
-	"os"
-	"runtime"
-	"strings"
-
+	"github.com/rbankston/plotter/flow"
 	"github.com/spf13/cobra"
 )
-
-func UserHomeDir() string {
-	env := "HOME"
-	if runtime.GOOS == "windows" {
-		env = "USERPROFILE"
-	} else if runtime.GOOS == "plan9" {
-		env = "home"
-	}
-	return os.Getenv(env)
-}
-
-// TODO: Functioning for windows users.
-func UserPlotterDir() string {
-	dir := UserHomeDir()
-	stringArray := []string{dir, ".kube", "plotter"}
-	plotterDir := strings.Join(stringArray, "/")
-	return plotterDir
-}
 
 // listCmd represents the list command
 var listCmd = &cobra.Command{
 	Use:   "list",
-	Short: "lists plotter files",
+	Short: "lists plotter files (Default Action)",
 	Long:  `plotter list shows all of the plotter configs available to use with their name.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		dir := UserPlotterDir()
-		files, err := ioutil.ReadDir(dir)
-		if err != nil {
-			log.Fatal(err)
-		}
-		for _, file := range files {
-			fmt.Println(file.Name())
-		}
+		flow.Perform(
+			&flow.ListingPlotterFiles{},
+		)
 	},
 }
 

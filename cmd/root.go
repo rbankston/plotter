@@ -19,6 +19,7 @@ import (
 	"os"
 
 	homedir "github.com/mitchellh/go-homedir"
+	"github.com/rbankston/plotter/flow"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -32,10 +33,11 @@ var RootCmd = &cobra.Command{
 	Long:  `plotter keeps your kubeconfigs in a sane fashion for handling multiple clusters without contexts `,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
-	// TODO: Alias the list command for the RootCmd
-	// Run: func(cmd *cobra.Command, args []string) {
-	// 	ListCmd()
-	// },
+	Run: func(cmd *cobra.Command, args []string) {
+		flow.Perform(
+			&flow.ListingPlotterFiles{},
+		)
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
