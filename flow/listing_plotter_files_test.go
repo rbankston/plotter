@@ -2,22 +2,23 @@ package flow
 
 import (
 	"fmt"
-	"log"
 	"os/user"
 	"strings"
 	"testing"
 )
 
 func TestUserHomeDir(t *testing.T) {
-	dir := (flow).UserHomeDir
+	flow := &ListingPlotterFiles{}
+
+	dir := flow.UserHomeDir()
 	user, err := user.Current()
 	if err != nil {
-		log.Fatal(err)
+		t.Errorf("Could not get the current user")
 	}
 
 	fmt.Println(user)
 
-	if strings.ContainsAny(dir, user.Username) {
+	if !strings.ContainsAny(dir, user.Username) {
 		t.Errorf("Expected homedir to contain current user but it does not")
 	}
 }
