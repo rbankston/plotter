@@ -15,8 +15,7 @@
 package cmd
 
 import (
-	"fmt"
-
+	"github.com/rbankston/plotter/flow"
 	"github.com/spf13/cobra"
 )
 
@@ -26,7 +25,9 @@ var activeCmd = &cobra.Command{
 	Short: "Shows active plotter file",
 	Long:  `plotter gives you the name of the active plotter file.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("active called")
+		flow.Perform(
+			&flow.ListingActiveFile{},
+		)
 	},
 }
 
