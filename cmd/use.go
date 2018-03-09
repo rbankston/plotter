@@ -15,8 +15,7 @@
 package cmd
 
 import (
-	"fmt"
-
+	"github.com/rbankston/plotter/flow"
 	"github.com/spf13/cobra"
 )
 
@@ -27,7 +26,9 @@ var useCmd = &cobra.Command{
 	Long: `plotter use makes that specific file the active plotter file. 
 	This also verifies if any changes were made to your previous plotter config and which one to save or to create a new plotter file out the back up leaving the previous file the same without modifications.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("use called")
+		flow.Perform(
+			&flow.MakeActiveFile{},
+		)
 	},
 }
 
