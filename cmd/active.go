@@ -22,7 +22,7 @@ import (
 // activeCmd represents the active command
 var activeCmd = &cobra.Command{
 	Use:   "active",
-	Short: "Shows active plotter file",
+	Short: "Shows active plotter file, Default command for Plotter",
 	Long:  `plotter gives you the name of the active plotter file.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		flow.Perform(
