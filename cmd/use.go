@@ -15,19 +15,30 @@
 package cmd
 
 import (
+	"errors"
+
 	"github.com/rbankston/plotter/flow"
 	"github.com/spf13/cobra"
 )
 
 // useCmd represents the use command
 var useCmd = &cobra.Command{
-	Use:   "use",
+	Use:   "use <profile>",
 	Short: "plotter use makes that specific file the active plotter file",
 	Long: `plotter use makes that specific file the active plotter file. 
 	This also verifies if any changes were made to your previous plotter config and which one to save or to create a new plotter file out the back up leaving the previous file the same without modifications.`,
+	PreRunE: func(cmd *cobra.Command, args []string) error {
+		if len(args) < 1 {
+			return errors.New("You must specify the profile to use.")
+		}
+
+		return nil
+	},
 	Run: func(cmd *cobra.Command, args []string) {
 		flow.Perform(
-			&flow.MakeActiveFile{},
+			&flow.MakeActiveFile{
+				Profile: args[0],
+			},
 		)
 	},
 }

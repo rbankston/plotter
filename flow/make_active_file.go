@@ -7,6 +7,7 @@ import (
 )
 
 type MakeActiveFile struct {
+	Profile string
 }
 
 // UserHomeDir detects the User's Home Directory
@@ -46,6 +47,6 @@ func (flow *MakeActiveFile) CreateSymlink(file string) {
 }
 func (flow *MakeActiveFile) perform() error {
 	flow.RemoveSymlink()
-
+	flow.CreateSymlink(flow.Profile)
 	return nil
 }
